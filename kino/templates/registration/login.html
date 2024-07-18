@@ -1,0 +1,22 @@
+{% extends 'kino/base.html' %}
+
+{% block body %}
+<!-- templates/registration/login.html -->
+<h2>Logowanie</h2>
+<form method="post">
+  <div id="addCom">
+    <form method="post">
+      {% csrf_token %}
+      {% for field in form %}
+      <div id="comment"><label>{{field.label}}</label><br>
+        {{ field.errors }}
+        {{ field }}<br></div>
+      {% endfor %}
+      <div id="comment"><input type="submit" value="Zaloguj"</div>
+    </form>
+    </div></div>
+</form>
+<br><div id="menu4">
+{{ form.non_field_errors  }}
+<a href="../signup">Nie masz konta? Zarejestruj się.</a></div>
+{% endblock %}

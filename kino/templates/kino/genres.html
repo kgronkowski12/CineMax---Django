@@ -1,0 +1,22 @@
+{% extends 'kino/base.html' %}
+{% load static %}
+{% block body %}
+{% if user.get_username == "admin" %}
+<br>
+<b><div id=menu><name>&nbsp&nbsp&nbsp&nbsp<A href="/kino/add/genre/">Dodaj gatunek</A></name><div></b>
+  <name><br><b>&nbsp&nbspWszystkie gatunki:</b><br></name>
+  {% for m in Genres %}
+  <div id="menu2">
+    Nazwa: <span class="text-info"><a  href=../{{ m.get_link }}> {{m.name}} </a></span><br>
+    <div id="genreDesc"><br>Opis: {{m.desc}}<br><br></div>
+    <section><span class="text-info"><a  href=../{{ m.edit_link }}> Edytuj </a></span></section><br>
+    <section><span class="text-info"><a  href=../{{ m.delete_link }}> Usuń </a></span></section><br>
+  </div>
+  {% endfor %}
+
+{% else %}
+<br>
+<name>Brak uprawnień!</name>
+    
+{% endif %}
+{% endblock %}

@@ -1,0 +1,89 @@
+{% extends 'kino/base.html' %}
+
+{% block body %}
+
+{% for m in Movies %}
+<div id="film">
+<br><br>
+  <div id="movieDesc">Nazwa: {{m.name}}<br></div>
+  <div id="movieDesc">Ocena: {{points}} / 10</div>
+  <div id="movieDesc">Gatunek: <span class="text-info"><a  href= ../../{{ m.get_genre_link }}> {{m.genre_id.name}} </a></span><br></div>
+  <div id="movieDesc">Reżyser: <a  href=../../{{ m.get_director_link }}> {{m.director_id.name}} </a></span><br></div>
+  <div id="movieDesc">Data wydania: {{m.pub_date}}</div>
+  <div id="movieDesc">Opis: {{m.description}}<br><br></div><br><br>
+</div>
+
+{% endfor %}
+
+<div id="opinie">
+  <br><br><div id="movieDesc2">Opinie:</div><br>
+  <div id="coms">
+{% for c in Comments %}
+  <div id="comment">Login: {{c.name}} </a></span><br></div>
+  <div id="comment">Ocena: {{c.score}}</div>
+  <div id="comment">Recenzja: {{c.comment}}</div>
+  {% if user.is_authenticated %}
+    {% if isAdmin %}
+      <div id="comment"><a href=deleteComment/{{c.id}}>Usuń recenzję</a></div>
+    {% endif %}
+    <br>
+  {% else %}
+    <br>
+  {% endif %}
+
+
+
+
+{% endfor %}
+</div>
+
+{% if user.is_authenticated %}
+
+  {% if not yourComment %}
+  <div id="addCom">
+  <form method="post">
+    {% csrf_token %}
+    <div id="comment"><label>Dodaj recenzje</label><br>{{ form.movieId }}</div>
+    <div id="comment"><label>Ocena</label><br>
+      {{ form.score}}<br>
+      {% for error in form.score.errors %}
+        <br>{{ error }}
+      {% endfor %}</div>
+    <div id="comment"><label>Recenzja</label><br>
+      {% for error in form.comment.errors %}
+      <br>{{ error }}
+      {% endfor %}
+      {{ form.comment}}<br></div>
+    <div id="comment"><input type="submit" value="Dodaj"></div>
+
+  </form>
+  </div></div>
+  {% else %}
+  <div id="addCom">
+    <form method="post">
+      {% csrf_token %}
+      <div id="comment"><label>Twoja recenzja</label><br>{{ form.movieId }}</div>
+      <div id="comment"><label>Ocena</label><br>
+        {{ form.score}}<br>
+        {% for error in form.score.errors %}
+          <br>{{ error }}
+        {% endfor %}</div>
+      <div id="comment"><label>Recenzja</label><br>
+        {% for error in form.comment.errors %}
+        <br>{{ error }}
+        {% endfor %}
+        {{ form.comment}}<br></div>
+      <div id="comment"><input type="submit" value="Edytuj", name="edit">&nbsp&nbsp<input type="submit" value="Usuń", name="delete"></div>
+    </form>
+    </div></div>
+  {% endif %}
+
+{% else %}
+<div id="addCom">
+<div id="comment"><label>Dodaj recenzje</label><br>{{ form.movieId }}</div>
+<div id="comment"><label>Zaloguj się, aby dodać recenzję.</label><br>
+</div>
+
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head><body>
+<link rel="stylesheet" type="text/css" href ="{% static 'css/main.css' %}">
+<title>CineMax</title>
+</head>
+<div id="navbar"><div id="menu"><img src = "{% static '/images/logo.png' %}" width="100" height="100"> <log><b>CinemaMax
+</b></name>
+<name><b>&nbsp&nbsp&nbsp&nbsp&nbsp<A href="/kino"">|Repertuar|</A>&nbsp&nbsp&nbsp&nbsp&nbsp<A href="/kino/view/0">|Wszystkie filmy|</A>
+{% if user.is_authenticated %}
+{% if user.get_username == "admin" %}
+&nbsp&nbsp&nbsp&nbsp&nbsp<A href="/kino/genres/">|Gatunki|</A>
+&nbsp&nbsp&nbsp&nbsp&nbsp<A href="/kino/directors/">|Reżyserowie|</A>
+{% endif %}
+&nbsp&nbsp&nbsp&nbsp&nbsp
+<A href="{% url 'logout' %}">|Wyloguj|</A>
+{% else %}
+&nbsp&nbsp&nbsp&nbsp&nbsp
+<A href="/kino/accounts/login">|Zaloguj|</A>
+{% endif %}
+</name></b>
+<name></div></div>
+{% block body %}
+{% endblock %}
+<br><br></html><body>
+</html>

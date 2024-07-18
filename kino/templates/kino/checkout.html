@@ -1,0 +1,44 @@
+{% extends 'kino/base.html' %}
+
+{% block body %}
+<br><br>
+<div id="addCom">
+<form method="post">
+  {% csrf_token %}
+  <div id="comment"><label>Informacje płatnicze</label><br>{{ form.movieId }}{{form.seatnr}}</div>
+  <div id="comment"><label>Imie </label><br>
+    {{ form.imie }}
+    {% for error in form.imie.errors %}
+    <br>{{ error }}
+    {% endfor %}
+  <br></div>
+  <div id="comment"><label>Nazwisko </label><br>
+    {{ form.nazwisko }}
+    {% for error in form.nazwisko.errors %}
+    <br>{{ error }}
+    {% endfor %}
+  <br></div>
+  <div id="comment"><label>Email </label><br>
+    {{ form.email }}
+    {% for error in form.email.errors %}
+    <br>{{ error }}
+    {% endfor %}
+  <br></div>
+  <div id="comment"><label>Numer Karty</label><br>
+    {{ form.nrKarty }}
+    {% for error in form.nrKarty.errors %}
+    <br>{{ error }}
+    {% endfor %}
+  <br></div>
+    <div id="comment"><label>Kod Cvv </label><br>
+      {{ form.kodCvv }}
+      {% for error in form.kodCvv.errors %}
+      <br>{{ error }}
+      {% endfor %}
+    <br></div>
+  <div id="comment"><input type="submit" value="Zakup"></div>
+
+</form>
+</div></div>
+
+{% endblock %}

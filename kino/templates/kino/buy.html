@@ -1,0 +1,22 @@
+{% extends 'kino/base.html' %}
+{% load static %}
+{% block body %}
+
+<h3>Dostępne miejsca:</h3>
+<div id="ekran">Ekran</div>
+{% for row in rows %}
+<div id="row">
+{% for seat in row %}
+<div id="{{seat.access}}">
+    {% if seat.access == "avb" %}
+        <span class="text-info"><a  href="../../checkout/{{mov}}/{{seat.nr}}">{{seat.nr}}</a></span></div>
+    {% else %}
+        {{seat.nr}}
+    {% endif %}
+</div>
+{% endfor %}</div><br><br>
+{% endfor %}
+
+{% endblock %}
+
+

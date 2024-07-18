@@ -1,0 +1,25 @@
+{% extends 'kino/base.html' %}
+{% load static %}
+{% block body %}
+{% if admin %}
+<br>
+<b><div id=menu><name>&nbsp&nbsp&nbsp&nbsp<A href="/kino/add/movie/">Dodaj film</A></name><div></b>
+{% endif %}
+<name><br><b>&nbsp&nbsp Sortuj:</b><br></name>
+<div id=menu><name>&nbsp&nbsp&nbsp&nbsp<A href="/kino/view/0">Alfabetycznie</A>&nbsp&nbsp&nbsp&nbsp&nbsp<A href="/kino/view/1">Chronologicznie</A>&nbsp&nbsp&nbsp&nbsp&nbsp<A href="/kino/view/2">Wg. Ocen użytkowników</A>&nbsp&nbsp&nbsp&nbsp&nbsp<A href="/kino/view/3">Po gatunku</A></name></b></div>
+<br><name><br><b>&nbsp&nbsp Wszystkie filmy:</b><br></name>
+{% for m in Movies %}
+<div id="menu2">
+  Nazwa: <span class="text-info"><a  href= ../../{{ m.movie.get_movie_link }}> {{m.movie.name}} </a></span><br>
+  Gatunek: <span class="text-info"><a  href= ../../{{ m.movie.get_genre_link }}> {{m.movie.genre_id.name}} </a></span><br>
+  Reżyser: <a  href=../../{{ m.movie.get_director_link }}> {{m.movie.director_id.name}} </a></span><br>
+  Ocena: {{m.score}} / 10<br>
+  <img class="thumbnail" src="{% static '/images/filmIcon/' %}{{m.movie.img_name}}.png" width="300" height="300"><br>
+  {% if admin %}
+  <section><span class="text-info"><a  href=../../{{ m.movie.edit_link }}> Edytuj </a></span></section><br>
+  <section><span class="text-info"><a  href=../../{{ m.movie.delete_link }}> Usuń </a></span></section><br>
+  {% endif %}
+</div></div>
+{% endfor %}
+
+{% endblock %}

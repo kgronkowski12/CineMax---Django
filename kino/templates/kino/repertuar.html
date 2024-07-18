@@ -1,0 +1,28 @@
+{% extends 'kino/base.html' %}
+{% load static %}
+{% block body %}
+{% if user.is_authenticated %}
+<h2>Witaj ponownie, {{ user.username }}!</h2>
+{% endif %}
+{% if admin %}
+<b><div id=menu><name>&nbsp&nbsp<A href="/kino/add/repertuar/">Dodaj element repertuaru</A></name><div></b>
+{% endif %}
+<name><br><b>&nbsp&nbspNasz repertuar:</b><br></name>
+{% for m in Movies %}
+<div id="menu2">
+  Nazwa: <span class="text-info"><a  href={{ m.movie_id.get_movie_link }}> {{m.movie_id.name}} </a></span><br>
+  Gatunek: <a  href={{ m.movie_id.get_genre_link }}> {{m.movie_id.genre_id.name}} </a></span><br>
+  Reżyser: <a  href={{ m.movie_id.get_director_link }}> {{m.movie_id.director_id.name}} </a></span><br>
+  Początek: {{m.start_time}}<br>
+  Koniec: {{m.end_time}}<br><br>
+  <img class="thumbnail" src="{% static '/images/filmIcon/' %}{{m.movie_id.img_name}}.png" width="300" height="300"><br>
+  <section><span class="text-info"><a  href={{ m.buy_link }}> Kup Bilet </a></span></section><br>
+  {% if admin %}
+  <section><span class="text-info"><a  href={{ m.edit_link }}> Edytuj </a></span></section><br>
+  <section><span class="text-info"><a  href={{ m.delete_link }}> Usuń </a></span></section><br>
+  {% endif %}
+</div>
+{% endfor %}
+
+{% endblock %}
+

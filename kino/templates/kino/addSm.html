@@ -1,0 +1,32 @@
+{% extends 'kino/base.html' %}
+
+{% block body %}
+<br><br>
+{% if user.is_authenticated %}
+
+  {% if admin %}
+  <div id="addCom">
+  <form method="post">
+    {% csrf_token %}
+    <div id="comment"><label>{{dodawane}}</label><br></div>
+    {% for field in form %}
+    <div id="comment"><label>{{field.label}}</label><br>
+      {{ field.errors }}
+      {{ field }}<br></div>
+    {% endfor %}
+    <div id="comment"><input type="submit" value="{{name}}"</div>
+  </form>
+  </div></div>
+  {% else %}
+  <div id="addCom">
+  <div id="comment"><label>Nie masz uprawnień!</label><br>
+  </div>
+  {% endif %}
+
+{% else %}
+<div id="addCom">
+<div id="comment"><label>Nie masz uprawnień!</label><br>
+</div>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,209 @@
+body{
+    color: #d1d1d1;
+    background-color:#2b334f;
+}
+
+div#navbar{
+    width: 130%;
+    margin-left: -10px;
+    margin-top: -10px;
+    background-color:#334482;
+    color: white;
+}
+
+name{
+    font-size: 25px;
+	color: white;
+}
+
+log{
+    font-size: 35px;
+	color: white;
+}
+
+
+name2{
+	font-size: 25px;
+	color: white;
+    display: table-cell;
+    vertical-align: bottom;
+}
+
+h3{
+    padding:18px;
+    font-size: 25px;
+    color: white;
+}
+
+menu {
+    color: white;
+    width: 1200px;
+    height: 100px;
+    margin-top: 10px;
+    margin-left: 10px;
+    padding: 5px;
+    float: up;
+}
+
+menu2 {
+
+    display: table-cell;
+    vertical-align: bottom;
+    width: 400px;
+    margin-top: 10px;
+    margin-left: 10px;
+    padding: 5px;
+    float: left;
+}
+
+div#menu2 {
+    width: 400px;
+    margin-top: 10px;
+    margin-left: 10px;
+    padding: 5px;
+    float: left;
+}
+
+div#menu3 {
+    margin-top: 10px;
+    margin-left: 10px;
+    padding: 5px;
+    float: left;
+}
+
+
+div#menu4 {
+    clear: left;
+    margin-top: 10px;
+    margin-left: 10px;
+    padding: 5px;
+}
+
+a:link { color: #ffffff; }
+a:visited { color: #ffffff; }
+a:hover { color: #ffccff; }
+a:active { color: #ffffff; }
+
+
+div#genreDesc{
+    margin:0px;
+    width:280px;
+    height: 160px;
+}
+
+refresher{
+    width: 800px;
+    height: 100px;
+}
+
+section {
+    position: relative;
+    width: 290px;
+    color: white;
+    border-style: solid;
+    height: 35px;
+    padding: 5px;
+    float: left;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div#movieDesc{
+    font-size: 25px;
+    color: white;
+    border-style: dotted;
+    width: 95%;
+    padding: 5px;
+}
+
+div#movieDesc2{
+    font-size: 25px;
+    color: white;
+    border-style: dotted;
+    margin:0px;
+    width:100%;
+    padding: 5px;
+}
+
+div#comment{
+    font-size: 25px;
+    color: white;
+    border-style: dotted;
+    margin:0px;
+    width:85%;
+    padding: 5px;
+}
+
+
+div#film{
+    float:left;
+    width: 30%;
+    max-width: 30%;
+}
+
+div#opinie{
+    float:left;
+    width:65%;
+}
+
+div#addCom{
+    float:left;
+    width:40%;
+}
+
+div#coms{
+    float:left;
+    width:50%;
+}
+
+div#avb{
+    width: 50px;
+    height: 50px;
+    background-color: lime;
+    float: left;
+    border: 4px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div#navb{
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    border-style: solid;
+    float: left;
+    border: 4px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div#ekran{
+    width: 283px;
+    height: 150px;
+    background-color: black;
+    border-style: solid;
+    float: left;
+    border: 4px solid blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white
+}
+
+div#row{
+    width: 300px;
+}
+
+section2 {
+    position: relative
+    color: black;
+    background-color: #ececec;
+    width: 290px;
+    height: 35px;
+    padding: 5px;
+    float: left;
+}

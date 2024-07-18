@@ -1,0 +1,23 @@
+{% extends 'kino/base.html' %}
+{% load static %}
+{% block body %}
+
+<div id="film">
+<br><br>
+  <div id="movieDesc">{{Genre.name}}<br></div>
+  <div id="movieDesc">{{Genre.desc}}<br><br></div><br><br>
+</div>
+
+<div id="opinie">
+  <name><br><b>&nbsp&nbspFilmy z gatunku:</b><br></name>
+  {% for m in Movies %}
+  <div id="menu3">
+    Nazwa: <span class="text-info"><a  href= ../../{{ m.movie.get_movie_link }}> {{m.movie.name}} </a></span><br>
+    Reżyser: <a  href=../../{{ m.movie.get_director_link }}> {{m.movie.director_id.name}} </a></span><br>
+    Ocena: {{m.score}}<br>
+    <img class="thumbnail" src="{% static '/images/filmIcon/' %}{{m.movie.img_name}}.png" width="300" height="300"><br>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}
